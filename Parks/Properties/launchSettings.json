@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:42420",
-      "sslPort": 44367
+      "applicationUrl": "http://localhost:51085",
+      "sslPort": 44385
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ParkFinder.Solution": {
+    "Parks": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

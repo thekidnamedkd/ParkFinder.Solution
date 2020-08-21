@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ParkFinder.Solution.Controllers
+namespace Parks.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/ParkFinder.Solution.csproj": {}
+    "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/Parks/Parks.csproj": {}
   },
   "projects": {
-    "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/ParkFinder.Solution.csproj": {
+    "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/Parks/Parks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/ParkFinder.Solution.csproj",
-        "projectName": "ParkFinder.Solution",
-        "projectPath": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/ParkFinder.Solution.csproj",
+        "projectUniqueName": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/Parks/Parks.csproj",
+        "projectName": "Parks",
+        "projectPath": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/Parks/Parks.csproj",
         "packagesPath": "/Users/thekidnamedkd/.nuget/packages/",
-        "outputPath": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/obj/",
+        "outputPath": "/Users/thekidnamedkd/Desktop/ParkFinder.Solution/Parks/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -50,11 +50,19 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [
