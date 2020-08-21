@@ -23,6 +23,31 @@ namespace Parks
             services.AddDbContext<ParksContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Register the Swagger services
+    
+
+            services.AddSwaggerDocument(config =>
+        {
+            config.PostProcess = document =>
+            {
+                document.Info.Version = "v1.0.0";
+                document.Info.Title = "Park Finder API";
+                document.Info.Description = "A simple ASP.NET Core web API";
+                document.Info.TermsOfService = "None";
+                document.Info.Contact = new NSwag.OpenApiContact
+                {
+                    Name = "Kevin Davis",
+                    Email = "thekidnamedkd@gmail.com",
+                    Url = "thekidnamedkd.github.io"
+                };
+                document.Info.License = new NSwag.OpenApiLicense
+                {
+                    Name = "Use under MIT License",
+                    Url = "https://opensource.org/licenses/MIT"
+                };
+            };
+        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +62,10 @@ namespace Parks
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             // app.UseHttpsRedirection();
             app.UseMvc();
