@@ -28,6 +28,13 @@ namespace Parks.Controllers
       return _db.Nationals.ToList();
     }
 
+    // GET api/nationals/nationalid#
+    [HttpGet("{NationalId}")]
+    public ActionResult<National> Get(int nationalId)
+    {
+        return _db.Nationals.FirstOrDefault(entry => entry.NationalId == nationalId);
+    }
+
     // GET api/nationals/search
     [HttpGet ("search")]
     public ActionResult<IEnumerable<National>> Get(int nationalId, string nationalParkName, string nationalName, int nationalParkYear)
