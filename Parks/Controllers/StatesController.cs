@@ -28,11 +28,29 @@ namespace Parks.Controllers
       return _db.States.ToList();
     }
 
-    // GET api/states
-    [HttpGet("{id}")]
-    public ActionResult<State> Get(int id)
+    // GET api/states/search
+    [HttpGet ("search")]
+    public ActionResult<IEnumerable<State>> Get(int stateId, string stateParkName, string stateName, int stateParkYear)
     {
-      return _db.States.FirstOrDefault(entry => entry.StateId == id);
+      var query = _db.States.AsQueryable();
+      if (stateId != 0)
+      {
+        query = query.Where(entry => entry.StateId == stateId);
+      }
+      if (stateParkName != null)
+      {
+        query = query.Where(entry => entry.StateParkName == stateParkName);
+      }
+      if (stateName != null)
+      {
+        query = query.Where(entry => entry.StateName == stateName);
+      }
+      if (stateParkYear != 0)
+      {
+        query = query.Where(entry => entry.StateParkYear == stateParkYear);
+      }
+
+      return query.ToList();
     }
 
       //GET api/states/pages
