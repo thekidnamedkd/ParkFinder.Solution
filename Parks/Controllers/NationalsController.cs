@@ -32,14 +32,14 @@ namespace Parks.Controllers
       _db.SaveChanges();
     }
 
-    // GET api/nationals/5
+    // GET api/nationals
     [HttpGet("{id}")]
     public ActionResult<National> Get(int id)
     {
       return _db.Nationals.FirstOrDefault(entry => entry.NationalId == id);
     }
 
-    // PUT api/nationals/5
+    // PUT api/nationals
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] National national)
     {
@@ -48,7 +48,7 @@ namespace Parks.Controllers
       _db.SaveChanges();
     }
 
-    // DELETE api/nationals/5
+    // DELETE api/nationals
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
