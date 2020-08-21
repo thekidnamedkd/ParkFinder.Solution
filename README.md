@@ -17,16 +17,17 @@ _A RESTful API application in C# with MVC design pattern to document national an
 * Install [.NET version 3.1 SDK v2.2+](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install [MySql Workbench](https://www.mysql.com/products/workbench/)
+* Install [Postman](https://www.postman.com/downloads/)
 
 
 ## Application Installation
-* _First make sure you have the .NET Core installed for your operating system. If you are unsure go here https://dotnet.microsoft.com/download/dotnet-core/2.2. Find the right version for you and install._
-* _Visit the following link: https://github.com/thekidnamedkd/PierresLogin.Solution_
+* _First make sure you have the .NET Core installed for your operating system. If you are unsure go here https://dotnet.microsoft.com/download/dotnet-core/2.2. Find the right OS version for you and install._
+* _Visit the following link: https://github.com/thekidnamedkd/ParkFinder.Solution_
 * _Clone the repository to your desired directory._
-* _Use the terminal to navigate into to PierresLogin.Solution_
+* _Use the terminal to navigate into to ParkFinder.Solution_
 * _Once inside the folder, navigate further to the Bakery folder via the terminal._
 * _There you can use the command ```$dotnet restore``` to add the necessary system files to the application._
-* _Then you can use the command ```$dotnet ef database update``` to create a MySQL database for the pplication._
+* _Then you can use the command ```$dotnet ef database update``` to create a MySQL database for the application._
 * _Once that is complete you can run ```$dotnet run``` to launch the application._
 * _If the program successfully launches you should be able to go to http://localhost:5000/ to view the project._
 
@@ -53,14 +54,25 @@ _A RESTful API application in C# with MVC design pattern to document national an
 }
 ```
 
-### Running the program:
+* Once this is setup properly, you can run:
+
+```
+dotnet ef migrations add Initial
+```
+followed by:
+
+```
+dotnet ef database update
+```
+## Running the program:
 1. In your command line terminal, type `cd Desktop` then navigate to project folder using `cd ParkFinder.Solution`
 2. To run the program, you'll need navigate to the project folder by entering `cd Parks`, then to compile the code enter: `dotnet restore`. This will create a compiled application in the bin/ folder.  Do not touch the files in the bin/ or obj/ folders, you will not need to and the application will not run as intended.
 3. You can then run the program directly with `dotnet run` while still within the TravelApi directory.
 
-
-### OpenAPI Documentation:
-For further documentation and exploration of our API, see the SwaggerUI here while the app is running:
+## Using JSON Tokenization
+The 
+## OpenAPI Documentation:
+For further documentation and exploration of this API, see the SwaggerUI by entering the following URL into your browswer of choice while the application is running:
 <http://localhost:5000/swagger/index.html#/>
 
 
@@ -71,20 +83,21 @@ _No known bugs._
 
 ## Support and contact details
 
-_Please reach out through my GitHub account._
+_For questions, comments, or collaboration contact me at thekidnamedkd@gmail.com_
 
 
 ## Technologies Used
 
 C#
-ASP/.NET
+ASP/.NET Core 2.2
 Entity
+SQL
 MySQL Workbench
 Swagger
 VSCode
 
 
-### License
+## License
 
 Copyright (c) 2020 **_Kevin Davis_**   
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
