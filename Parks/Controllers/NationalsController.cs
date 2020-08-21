@@ -28,11 +28,29 @@ namespace Parks.Controllers
       return _db.Nationals.ToList();
     }
 
-    // GET api/nationals
-    [HttpGet("{id}")]
-    public ActionResult<National> Get(int id)
+    // GET api/nationals/search
+    [HttpGet ("search")]
+    public ActionResult<IEnumerable<National>> Get(int nationalId, string nationalParkName, string nationalName, int nationalParkYear)
     {
-      return _db.Nationals.FirstOrDefault(entry => entry.NationalId == id);
+      var query = _db.Nationals.AsQueryable();
+      if (nationalId != 0)
+      {
+        query = query.Where(entry => entry.NationalId == nationalId);
+      }
+      if (nationalParkName != null)
+      {
+        query = query.Where(entry => entry.NationalParkName == nationalParkName);
+      }
+      if (nationalName != null)
+      {
+        query = query.Where(entry => entry.NationalName == nationalName);
+      }
+      if (nationalParkYear != 0)
+      {
+        query = query.Where(entry => entry.NationalParkYear == nationalParkYear);
+      }
+
+      return query.ToList();
     }
 
     //GET api/nationals/pages
