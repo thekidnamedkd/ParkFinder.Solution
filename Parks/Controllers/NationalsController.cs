@@ -1,8 +1,12 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Parks.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
+using Parks.Models;
 
 namespace Parks.Controllers
 {
@@ -17,14 +21,33 @@ namespace Parks.Controllers
       _db = db;
     }
 
-    // GET api/states
+    // GET api/nationals
     [HttpGet]
     public ActionResult<IEnumerable<National>> Get()
     {
       return _db.Nationals.ToList();
     }
 
-    // POST api/states
+    // GET api/nationals
+    [HttpGet("{id}")]
+    public ActionResult<National> Get(int id)
+    {
+      return _db.Nationals.FirstOrDefault(entry => entry.NationalId == id);
+    }
+
+    //GET api/nationals/pages
+    [HttpGet ("pages")]
+    public async Task<IActionResult> GetAll([FromQuery] UrlQuery urlQuery)
+    {
+        var validUrlQuery = new UrlQuery(urlQuery.PageNumber, urlQuery.PageSize);
+        var pagedData = _db.Nationals
+          .OrderBy(thing => thing.NationalId)
+          .Skip((validUrlQuery.PageNumber - 1) * validUrlQuery.PageSize)
+          .Take(validUrlQuery.PageSize);
+        return Ok(pagedData);
+    }
+
+    // POST api/nationals
     [HttpPost]
     public void Post([FromBody] National state)
     {
@@ -32,14 +55,7 @@ namespace Parks.Controllers
       _db.SaveChanges();
     }
 
-    // GET api/states
-    [HttpGet("{id}")]
-    public ActionResult<National> Get(int id)
-    {
-      return _db.Nationals.FirstOrDefault(entry => entry.NationalId == id);
-    }
-
-    // PUT api/states
+    // PUT api/nationals
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] National state)
     {
@@ -48,7 +64,7 @@ namespace Parks.Controllers
       _db.SaveChanges();
     }
 
-    // DELETE api/states
+    // DELETE api/nationals
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
