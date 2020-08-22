@@ -65,12 +65,31 @@ followed by:
 dotnet ef database update
 ```
 ## Running the program:
-1. In your command line terminal, type `cd Desktop` then navigate to project folder using `cd ParkFinder.Solution`
-2. To run the program, you'll need navigate to the project folder by entering `cd Parks`, then to compile the code enter: `dotnet restore`. This will create a compiled application in the bin/ folder.  Do not touch the files in the bin/ or obj/ folders, you will not need to and the application will not run as intended.
-3. You can then run the program directly with `dotnet run` while still within the TravelApi directory.
+* In your command line terminal, type `cd Desktop` then navigate to project folder using `cd ParkFinder.Solution`
+* To run the program, you'll need navigate to the project folder by entering `cd Parks`, then to compile the code enter: `dotnet restore`. This will create a compiled application in the bin/ folder.  Do not touch the files in the bin/ or obj/ folders, you will not need to and the application will not run as intended.
+* You can then run the program directly with `dotnet run` while still within the TravelApi directory.
 
 ## Using JSON Tokenization
-The 
+This application contains JWT authentication. In order to acccess your token for further authorization follow these steps:
+
+* Open Postman and create a POST request using the following URL: http://localhost:5000/users/authenticate
+* As JSON and raw data, add the following query to the Body tab of Postman:
+```
+{
+  "Username": "test"
+  "Password": "test" 
+}
+```
+* You should see a token generated in the response. You can use this for further access to the application as more authorization is added to the API in the future.
+
+## Pagination
+This application has the ability to return it's broad results with pagination. Follow these steps to access it:
+
+* Open Postman and create a GET request using the following URL: http://localhost:5000/api/nationals/pages?pageSize=2&pageNumber=1
+* You can change the number of results by changing the value of pageSize.
+* You can change to the proper page number depending how many results are broken into pages by change the value of pageNumber.
+
+
 ## OpenAPI Documentation:
 For further documentation and exploration of this API, see the SwaggerUI by entering the following URL into your browswer of choice while the application is running:
 <http://localhost:5000/swagger/index.html#/>
