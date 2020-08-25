@@ -76,7 +76,7 @@ This application contains JWT authentication. In order to acccess your token for
 * As JSON and raw data, add the following query to the Body tab of Postman:
 ```
 {
-  "Username": "test"
+  "Username": "test",
   "Password": "test" 
 }
 ```
